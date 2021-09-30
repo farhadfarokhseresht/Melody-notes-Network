@@ -2,83 +2,61 @@
 <html>
 
 <head>
-	<meta charset = "utf-8">
-	<meta name = "viewport" content = "width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	<title>Melody Notes Network</title>
-	<link rel = "stylesheet" href = "assets/bootstrap/css/bootstrap.min.css">
-	<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Montserrat:400,700">
-	<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Kaushan+Script">
-	<link rel = "stylesheet" href = "assets/fonts/font-awesome.min.css">
-	<link rel = "stylesheet" href = "assets/css/app.css">
-	<link rel = "stylesheet" href = "assets/css/Login-Form-Dark.css">
-	<link rel = "stylesheet" href = "assets/css/Navigation-Clean.css">
-	<link rel = "stylesheet" href = "assets/css/Registration-Form-with-Photo.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Melody Notes Network</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
 </head>
 
-<body style = "position: relative;background: var(--bs-dark);">
-<nav class = "navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id = "mainNav">
-	<div class = "container"><a class = "navbar-brand" href = "#page-top">Melody Notes Network</a>
-		<button data-bs-toggle = "collapse" data-bs-target = "#navbarResponsive" class = "navbar-toggler navbar-toggler-right" type = "button" aria-controls = "navbarResponsive" aria-expanded = "false" aria-label = "Toggle navigation">
-			<i class = "fa fa-bars"></i></button>
-		<div class = "collapse navbar-collapse" id = "navbarResponsive">
-			<ul class = "navbar-nav ms-auto text-uppercase">
-				<li class = "nav-item">
-					<a class = "nav-link" href = "index.html"><i class = "fa fa-home" style = "font-size: 20.4px;color: var(--bs-yellow);"></i></a>
-				</li>
-				<li class = "nav-item"><a class = "nav-link" href = "#services">What's melody notes network</a></li>
-				<li class = "nav-item"></li>
-			</ul>
-		</div>
-	</div>
-</nav><!-- Start: js sorce -->
-<script src = "//unpkg.com/3d-force-graph"></script>
-<script src = "//unpkg.com/3d-force-graph-vr"></script>
-<script src = "jscore.js"></script><!-- End: js sorce -->
-<div id = "3d-graph"></div>
-<div id = "detector" class = "vague">
-	<div class = "pitch"><span style = "color: yellow" id = "pitch">--</span>Hz</div>
+<body style="position: relative;background: var(--bs-dark);">
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
+        <div class="container"><a class="navbar-brand" href="#page-top">Melody Notes Network</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto text-uppercase">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa fa-home" style="font-size: 20.4px;color: var(--bs-yellow);"></i></a></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav><!-- Start: js sorce --><script src = "//unpkg.com/3d-force-graph"></script>
+<script src="//unpkg.com/3d-force-graph-vr"></script>
+<!-- End: js sorce -->
+    <div id="3d-graph"></div><div id = "detector" class = "vague">
+	<div class = "pitch"><span style="color: yellow" id = "pitch">--</span>Hz</div>
 	<div class = "note"><span id = "note">--</span></div>
 	<canvas id = "output" width = 50 height = 50s></canvas>
 	<div id = "detune">
 		<span id = "detune_amt">--</span><span id = "flat">cents &#9837;</span><span id = "sharp">cents &#9839;</span>
 	</div>
-</div>
-
-      <!-- Start: Navigation Clean -->
-<nav class = "navbar navbar-light navbar-expand fixed-bottom navigation-clean">
-	<div class = "container">
-		<div class = "collapse navbar-collapse flex-row justify-content-start" id = "navcol-1">
-			<ul class = "navbar-nav">
-				<li class = "nav-item">
-					<button class = "btn btn-secondary btn-sm" type = "button" onclick = "reset()">reset</button>
-				</li>
-				<li class = "nav-item">
-					<button class = "btn btn-light btn-sm" type = "button" onclick = "toggleOscillator()">test</button>
-				</li>
-				<li class = "nav-item">
-					<button class = "btn btn-primary btn-sm" type = "button" onclick = "toggleLiveInput()" style = "color: var(--bs-dark);">start&nbsp;<i class = "fa fa-microphone"></i>&nbsp;
-					</button>
-				</li>
-			</ul>
-		</div>
-		<div class = "dropup">
-			<a class = "btn btn-sm dropdown-toggle" aria-expanded = "false" data-bs-toggle = "dropdown" >modes ( Coming Soon )</a>
-			<div class = "dropdown-menu">
-				<button disabled class = "dropdown-item" href = "#">Network line</button>
-				<button disabled class = "dropdown-item" href = "#">Free mode</button>
-				<button disabled class = "dropdown-item" href = "#">VR</button>
-				<button disabled class = "dropdown-item" href = "#">AR</button>
-			</div>
-		</div>
-	</div>
-</nav>
-      <!-- End: Navigation Clean -->
-<script src = "assets/bootstrap/js/bootstrap.min.js"></script>
-<script src = "assets/js/agency.js"></script>
-<script src = "assets/js/jscore.js"></script>
-<script src = "assets/js/clasic_mode.js"></script>
-<script src = "assets/js/pagesound.js"></script>
+</div><!-- Start: Navigation Clean -->
+    <nav class="navbar navbar-light navbar-expand fixed-bottom navigation-clean">
+        <div class="container">
+            <div class="collapse navbar-collapse flex-row justify-content-start" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><button class="btn btn-secondary btn-sm" type="button" onclick="reset()">reset</button></li>
+                    <li class="nav-item"><button class="btn btn-light btn-sm" type="button" onclick="toggleOscillator()">test</button></li>
+                    <li class="nav-item"><button class="btn btn-primary btn-sm text-nowrap" type="button" onclick="toggleLiveInput()" style="color: var(--bs-dark);">start&nbsp;<i class="fa fa-microphone"></i>&nbsp;</button></li>
+                </ul>
+            </div>
+            <div class="dropup"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">modes&nbsp;</a>
+                <div class="dropdown-menu"><a class="dropdown-item" href="#">Network line</a><a class="dropdown-item" href="#">Free mode</a><a class="dropdown-item" href="#">VR</a><a class="dropdown-item" href="#">AR</a></div>
+            </div>
+        </div>
+    </nav><!-- End: Navigation Clean -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/agency.js"></script>
+    <script src="assets/js/clasic_mode.js"></script>
+    <script src="assets/js/jscore.js"></script>
+    <script src="assets/js/pagesound.js"></script>
 </body>
 
 </html>
-
